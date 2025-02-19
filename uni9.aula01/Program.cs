@@ -2,7 +2,8 @@
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Ola, mundo");
 
-Televisao tvSala = new Televisao(50);
+Televisao tvSala = new Televisao(20);
+
 
 // tvSala.Tamanho = 32;
 Console.WriteLine($"O tamanho da tv é: {tvSala.Tamanho}");

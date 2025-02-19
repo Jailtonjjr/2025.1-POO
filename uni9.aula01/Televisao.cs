@@ -10,12 +10,14 @@ class Televisao
     // por padrao, o c# cria um metodo construtor publico vazil
     // mas podemos criar metodos construtores com outras
     // visibilidades e recebendo paramentros, se necessario.
-    
     public Televisao(float tamanho)
     {
+        if(tamanho < TAMANHO_MINIMO){
+            throw new ArgumentOutOfRangeException($"o tamanho ({tamanho})não é suportado.");
+        }
         Tamanho = tamanho;
     }
-
+    private const float TAMANHO_MINIMO = 22;
 
     // Get, permite que seja executado a leitura
     // do valor atual da propriedade
