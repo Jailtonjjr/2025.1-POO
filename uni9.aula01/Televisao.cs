@@ -1,5 +1,7 @@
-namespace aula_03;
+using System.Formats.Asn1;
 
+namespace aula_03;
+// separação virtual 
 class Televisao
 {
     // o metodo construtr possui o mesmo
@@ -19,15 +21,18 @@ class Televisao
         }
         Tamanho = tamanho;
         Volume = VOLUME_PADRAO;
+        
     }
     // optamos pela utilização da constante s
     private const float TAMANHO_MINIMO = 22;
     private const float TAMANHO_MAXIMO = 100;
 
-    private int VOLUME_MAXIMO = 100;
-    private int VOLUME_MINIMO = 0;
-    private int VOLUME_PADRAO = 10;
+    private const int VOLUME_MAXIMO = 100;
+    private const int VOLUME_MINIMO = 0;
+    private const int VOLUME_PADRAO = 10;
 
+    private int ultimoVolume = VOLUME_PADRAO;
+    private bool ModoTroca = false;
     // Get, permite que seja executado a leitura
     // do valor atual da propriedade
     // Set, permite que seja atribuido um
@@ -44,9 +49,13 @@ class Televisao
     public int Canal { get; set; }
     public bool Estado { get; set; }
 
+    
     public void AumentarVolume()
     {
-        if (Volume < VOLUME_MAXIMO){ 
+        if(ModoTroca == true){
+            Console.WriteLine("A TV está no modo MUTE.");
+        }
+        else if (Volume < VOLUME_MAXIMO){ 
         Volume++;
     }
         else
@@ -57,7 +66,10 @@ class Televisao
 
     public void DiminuirVolume()
     {
-        if (Volume < VOLUME_MINIMO){ 
+        if(ModoTroca == true){
+            Console.WriteLine("A TV está no modo MUTE.");
+        }
+        else if (Volume > VOLUME_MINIMO){ 
         Volume--;
     }
         else
@@ -67,4 +79,34 @@ class Televisao
 
 
     }
+    public void Silenciar()
+        {
+            ModoTroca = !ModoTroca;
+            if(ModoTroca ==true){
+                ultimoVolume = Volume;
+                Volume = VOLUME_MINIMO;
+                Console.WriteLine("Você colocou a TV está no modo MUTE.");
+            }
+            else{
+                Volume = ultimoVolume;
+                Console.WriteLine($"Você desmutou a TV, O volume da TV é : {Volume}.");
+
+            }
+
+            // if(Volume > VOLUME_MINIMO){
+                
+            //     ultimoVolume = Volume;
+            //     Volume = VOLUME_MINIMO;
+            //      Console.WriteLine("A TV está no modo MUTE.");
+            // }
+            // else{
+            //     Volume = ultimoVolume;
+            //      Console.WriteLine($"O volume da TV é : {Volume}.");
+
+            // }
+            
+
+        }
 }
+
+
