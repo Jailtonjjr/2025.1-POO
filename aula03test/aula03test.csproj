@@ -21,9 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <ProjectReference Include="..\uni9.aula01\uni9.aula01.csproj" /> -->
+    <!-- <ProjectReference Include="..\uni9.aula01\uni9.aula01.csproj" />
     <ProjectReference Include="../workspaces/2025.1-POO/aula01/uni9.aula01.csproj" />
-    <ProjectReference Include="..\aula01\uni9.aula01.csproj" />
+    <ProjectReference Include="..\aula01\uni9.aula01.csproj" /> -->
+    <ProjectReference Include="..\uni9.aula01\uni9.aula01.csproj" />
     
   </ItemGroup>
 

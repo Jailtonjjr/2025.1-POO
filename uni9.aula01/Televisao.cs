@@ -37,7 +37,7 @@ public class Televisao
     private  int UltimoCanal = -1;
     private int ultimoVolume = VOLUME_PADRAO;
     private bool ModoTroca = false;
-    private bool SeDigitou = false;
+    
     // Get, permite que seja executado a leitura
     // do valor atual da propriedade
     // Set, permite que seja atribuido um

@@ -115,15 +115,15 @@ public class TelevisaoTest
         televisao.Silenciar();
         Assert.AreEqual(volumeInicial, televisao.Volume);
     }
-    // [TestMethod]
-    // public void Deve_aumentar_canal_ao_subir_canal()
-    // {
-    //     Televisao televisao = new Televisao(25f);
-    //     Televisao.SubirCanal();
-    //     Assert.AreEqual(501, televisao.Volume);
+    [TestMethod]
+    public void Deve_aumentar_canal_ao_subir_canal()
+    {
+        Televisao televisao = new Televisao(25f);
+        Televisao.SubirCanal();
+        const int canal_esperado = 501;
+        Assert.AreEqual(canal_esperado, televisao.Canal);
 
-    // }
+    }
 
 
-    
 }
