@@ -1,8 +1,6 @@
-using System.Formats.Asn1;
-
 namespace aula_03;
 // separação virtual 
-class Televisao
+public class Televisao
 {
     // o metodo construtr possui o mesmo
     // nome da classe. ele nao possui retorno
@@ -21,18 +19,25 @@ class Televisao
         }
         Tamanho = tamanho;
         Volume = VOLUME_PADRAO;
+        Canal = Canal_Padrao;
         
     }
     // optamos pela utilização da constante s
     private const float TAMANHO_MINIMO = 22;
-    private const float TAMANHO_MAXIMO = 100;
+    private const float TAMANHO_MAXIMO = 80;
 
     private const int VOLUME_MAXIMO = 100;
     private const int VOLUME_MINIMO = 0;
     private const int VOLUME_PADRAO = 10;
 
+    private const int Canal_Minimo = 0;
+    private const int Canal_Padrao = 500;
+    private const int Canal_maximo = 999;
+
+    private  int UltimoCanal = -1;
     private int ultimoVolume = VOLUME_PADRAO;
     private bool ModoTroca = false;
+    private bool SeDigitou = false;
     // Get, permite que seja executado a leitura
     // do valor atual da propriedade
     // Set, permite que seja atribuido um
@@ -46,7 +51,7 @@ class Televisao
     public float Tamanho { get;  }
     public int Resolucao { get; set; }
     public int Volume { get; private set; }
-    public int Canal { get; set; }
+    public int Canal { get; private set; }
     public bool Estado { get; set; }
 
     
@@ -78,6 +83,45 @@ class Televisao
     }
 
 
+    }
+    public void DigitarCanal(int canal)
+    {
+        
+        if(canal < Canal_Minimo || canal > Canal_maximo){
+            Console.WriteLine($"Não foi possivel encontrar esse canal");
+        }
+        else
+        {
+            Console.WriteLine($"canal encontrado, você esta no canal {canal}");
+        }
+        UltimoCanal = canal;
+        
+    }
+    public void SubirCanal()
+    {
+     
+        if(UltimoCanal != -1){
+    
+        Canal = UltimoCanal;
+    }
+    
+        if(Canal > Canal_Minimo){
+            Canal++;
+            Console.WriteLine($"O canal é : {Canal}.");
+        }
+        UltimoCanal = Canal;
+    }
+    public void DescerCanal()
+    {  
+        if(UltimoCanal != -1)
+    {
+        Canal = UltimoCanal;
+    }
+        if(Canal < Canal_maximo){
+            Canal--;
+            Console.WriteLine($"O canal é : {Canal}.");
+        }
+        UltimoCanal = Canal;
     }
     public void Silenciar()
         {
