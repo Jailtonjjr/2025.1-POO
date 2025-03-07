@@ -33,5 +33,7 @@ Televisao tvSala = new Televisao(22);
 // tvSala.Silenciar();
 // tvSala.DescerCanal();
 // tvSala.DigitarCanal(540);
+
 tvSala.SubirCanal();
+tvSala.DescerCanal();
 // tvSala.DescerCanal();

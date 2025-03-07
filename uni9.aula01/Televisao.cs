@@ -21,6 +21,7 @@ public class Televisao
         Volume = VOLUME_PADRAO;
         Canal = Canal_Padrao;
         
+        
     }
     // optamos pela utilização da constante s
     private const float TAMANHO_MINIMO = 22;
@@ -51,7 +52,7 @@ public class Televisao
     public float Tamanho { get;  }
     public int Resolucao { get; set; }
     public int Volume { get; private set; }
-    public int Canal { get; private set; }
+    public int Canal { get;  set; }
     public bool Estado { get; set; }
 
     
@@ -85,7 +86,7 @@ public class Televisao
 
     }
     public void DigitarCanal(int canal)
-    {
+    {   
         
         if(canal < Canal_Minimo || canal > Canal_maximo){
             Console.WriteLine($"Não foi possivel encontrar esse canal");
@@ -95,17 +96,12 @@ public class Televisao
             Console.WriteLine($"canal encontrado, você esta no canal {canal}");
         }
         UltimoCanal = canal;
-        
-    }
-    public void SubirCanal()
-    {
-     
-        if(UltimoCanal != -1){
-    
         Canal = UltimoCanal;
     }
-    
-        if(Canal > Canal_Minimo){
+    public void SubirCanal()
+    {   
+     
+        if(Canal >= Canal_Minimo && Canal <= Canal_maximo){
             Canal++;
             Console.WriteLine($"O canal é : {Canal}.");
         }
@@ -113,11 +109,8 @@ public class Televisao
     }
     public void DescerCanal()
     {  
-        if(UltimoCanal != -1)
-    {
-        Canal = UltimoCanal;
-    }
-        if(Canal < Canal_maximo){
+        
+        if(Canal <= Canal_maximo && Canal >= Canal_Minimo){
             Canal--;
             Console.WriteLine($"O canal é : {Canal}.");
         }

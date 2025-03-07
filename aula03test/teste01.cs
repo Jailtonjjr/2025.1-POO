@@ -119,9 +119,33 @@ public class TelevisaoTest
     public void Deve_aumentar_canal_ao_subir_canal()
     {
         Televisao televisao = new Televisao(25f);
-        Televisao.SubirCanal();
-        const int canal_esperado = 501;
-        Assert.AreEqual(canal_esperado, televisao.Canal);
+        
+
+        televisao.SubirCanal();
+        
+        Assert.AreEqual(501, televisao.Canal);
+
+    }
+    [TestMethod]
+    public void Deve_Diminuir_canal_ao_subir_canal()
+    {
+        Televisao televisao = new Televisao(25f);
+        
+
+        televisao.DescerCanal();
+        
+        Assert.AreEqual(499, televisao.Canal);
+
+    }
+    [TestMethod]
+    public void Deve_Digitar_um_canal()
+    {
+        Televisao televisao = new Televisao(25f);
+        
+
+        televisao.DigitarCanal(540);
+        
+        Assert.AreEqual(540, televisao.Canal);
 
     }
 
